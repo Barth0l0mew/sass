@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <main>
+    <form action="#" class="main__form">
+        <input type="text" class="main__input" id="a" placeholder="Width treangle">
+        <input type="text" class="main__input" id="b" placeholder="Height treangle">
+        <input type="text" class="main__input result" id="r"  placeholder="Square treanle">
+        <button class="main__button" type="button" onclick="calc()">Result</button>
+    </form>
+   </main>
+   <script>
+    function calc (){
+        let a=document.querySelector("#a");
+        let b=document.querySelector("#b");
+        document.querySelector("#r").value=+a.value*b.value/2
+    }
+   // document.querySelector(".main__button").addEventListener("click",event=>{
+   //     let a=document.querySelector(".a");
+   //     let b=document.querySelector(".b");
+   //     document.querySelector(".result").value=+a.value*b.value/2
+    //    console.log(a);
+   // })
+   </script>
+</body>
+</html>
