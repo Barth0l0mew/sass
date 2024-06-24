@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grtid
+    </title>
+    <link rel="stylesheet" href="../css/colors.css">
+    <style>
+        .wrapper{
+            display: grid;
+            grid-template-columns: 1fr 2fr 3fr ;
+            width: 400px;
+            grid-gap: 10px;
+           
+        }
+        .box {
+            border-radius: 10px;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 150%;
+        }
+        .c{
+            animation-name: fonC;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes fonC{
+            50% {
+                transform:scaleX(0.5) scaleY(1);
+                
+            }
+        }
+        .f {
+            animation-name: fonF;
+            animation-duration: 5s;
+        }
+        @keyframes fonF{
+            50%{
+                transform: scaleX(0) scaleY(1);
+                translate: -50%;
+            }
+        }
+        /*
+        <!--Поставить A на место E-->
+    <!--Поставить B в позицию (1,2)
+        При наведении на Е несколько раз плавно меняется ее фон--> 
+        */
+        /*
+        <!--А занимает позиции (1,2..3)-->
+    <!--B занимает позиции (1..2,1)-->
+    <!--Поместить вращающиеся шестеренки на свободную ячейку--> 
+        */
+        .a{
+            grid-row: 1;
+            grid-column: 2/ span 2;
+        }
+        .b{
+            grid-column: 1;
+            grid-row: 1/3; 
+        }
+        .e:hover{
+            animation-name: fonE;
+            animation-duration: 1s;
+            animation-timing-function: liner;
+            animation-iteration-count: infinite;
+           
+        }
+        @keyframes fonE{
+       
+            form{
+                background-color: aqua;
+            }
+        }
+        .gear1, .gear2{
+            width: 40px;
+            height: auto;
+            position: relative;
+        }
+        .gear1{
+            top:-20px;
+            left: -30px;
+            animation-name: gear1;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        .gear2{
+            left: -41px;
+            animation-name: gear2;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }   
+        @keyframes gear1{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes gear2{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(-360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+        <h2 class="title">
+            Grid
+        </h2>
+        <div class="wrapper">
+            <div class="box a">A</div>
+            <div class="box b">B</div>
+            <div class="box c">C</div>
+            <div class="box d">D</div>
+            <div class="box e">E</div>
+            <div class="box f">F</div>
+            <div class="box gears">
+                <img src="../css/gear.svg" class="gear1" alt="">
+                <img src="../css/gear.svg" class="gear2" alt="">
+            </div>
+        </div>
+        <script>
+
+        </script>
+</body>
+</html>

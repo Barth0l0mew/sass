@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grtid
+    </title>
+    <link rel="stylesheet" href="../css/colors.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+     .content{
+        display: grid;
+        grid-template-areas: 
+        "header header header"
+        "aside article nav"
+        "footer footer footer" 
+        ;
+        border: 1px solid black;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 100px minmax(100vh, auto) 70px;
+        background-color: aquamarine;
+        width: 600px;
+        margin: 0 auto;
+        grid-gap: 10px;
+     }
+     header{
+        grid-area: header;
+        border: 1px solid black;
+        background-color: blanchedalmond;
+     }
+     aside{
+        grid-area: aside;
+        border: 1px solid black;
+        background-color: bisque;
+
+     }
+     article{
+        grid-area: article;
+        border: 1px solid black;
+       /* background-color: blue;*/
+        background:  #e73c7e;
+
+        animation-name: gradient;
+
+     }
+     nav{
+        grid-area: nav;
+        border: 1px solid black;
+        background-color: brown;
+
+     }
+     footer{
+        grid-area: footer;
+        border: 1px solid black;
+        background-color: #eee;
+
+     }
+     @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        article:hover {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+        } 
+     
+
+    </style>
+</head>
+<body>
+      
+        <!--Используются grid областей
+    Анимировать gradient в article-->
+    <div class="content">
+        <header>header</header>
+        <aside>aside</aside>
+        <nav>nav</nav>
+        <article>article</article>
+        <footer>footer</footer>
+    </div> 
+        <script>
+
+        </script>
+</body>
+</html>
