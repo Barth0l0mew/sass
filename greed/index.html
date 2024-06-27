@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            Three 1's => 1000 points
+            Three 6's =>  600 points
+            Three 5's =>  500 points
+            Three 4's =>  400 points
+            Three 3's =>  300 points
+            Three 2's =>  200 points
+            One   1   =>  100 points
+            One   5   =>   50 point
+            */ 
+    </style>
+</head>
+<body>
+    <!--1. Добыть рисунки-->
+    <!--2. 5 кубиков бросаются случайно. Написать функцию заполнения массива целых чисел-->
+    <!--3. Вывести картинки по заданному массиву-->
+    <!--4. Создать пользовательский интерфейс-->
+    <!--5. Стилизировать пользовательский интерфейс с помощью bootstrap-->
+    <!--6(*2). Функция для определения счета по заданному массиву-->
+    <!--7(*2). При нажатии на кнопку выводится счет в input-->
+    <!--8(*2). Добавить кнопку "Бросить 10 раз" и написать реализацию-->
+    <!--9. Написать тест по функции для определения счета--> 
+    <script>
+        check([1,2,3,4,1,6])
+        function check(arrays){
+            let tempArray = [
+                [1,2,3,4,1,6,],
+                [1000,200,300,400,500,600]
+            ]
+           // dell(arrays,5);
+            let temp=[[],[]];
+            let indexs=[];
+                for(let i=0;i<arrays.length;i++){
+                    let element = arrays[i];
+                    count=0;
+                    for (j=i+1;j<arrays.length;j++){
+                        if (element==arrays[j]){
+                        console.log (i+' '+j);
+                        count++;
+                        indexs.push(j);
+                        //arrays=dell(arrays,j)
+                        //console.log(indexs)
+                        }
+                        
+                    }
+                    arrays=dell(arrays,indexs);
+                    indexs=[];
+                    console.log (' arrays  '+arrays)
+                    
+                    
+                }
+            
+            console.log(arrays)
+        }
+        function dell (arrays, indexs){
+            for(let j=0;j<indexs.length;j++)
+            for (let i=indexs[j]+1;i<arrays.length;i++){
+                arrays[i-1]=arrays[i];
+            }
+            arrays.pop();
+            console.log(arrays);
+            return arrays;
+        }
+    </script>
+</body>
+</html>

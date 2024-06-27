@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/two.js/0.8.14/two.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="colors.js"></script>
+</head>
+<body>
+    <div class="container" id="container">
+
+    </div>
+
+    <div class="footer">
+        <a href="#" id="start" onclick="init">start</a>
+    </div>
+    <script>
+        function init(){
+            let container = document.getElementById('container');
+           
+             let a=50;
+             let rect=[];
+             let countWidth =6;
+             let countHeight = 4;
+             let width = countWidth*a;
+             let height =countHeight*a;
+             two = new Two({width:300, height:200, fullscreen:false});
+             two.appendTo(container);
+             for (let i=0; i<countWidth;i++){
+                for (let j=0;j<countHeight;j++){
+                    rect[i+j*countWidth] = two.makeRectangle(i*a+a/2,j*a+a/2,a,a);
+                }
+             }
+             two.update();
+        }
+        init();
+    </script>
+</body>
+</html>
