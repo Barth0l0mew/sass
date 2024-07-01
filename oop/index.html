@@ -85,13 +85,13 @@ https://cdnjs.cloudflare.com/ajax/libs/tooltipster/4.2.8/js/tooltipster.bundle.m
             this._s=value;
         }
       }
-      class Circle extends Shape{
-        constructor (x,y,r,color){
-            super(x,y,color);
-            this.type='Circle';
-            this.r=r;
+      class Circle extends Shape {
+        constructor(x, y, r, color) {
+            super(x, y, color);
+            this.type = 'circle';
+            this.r = r;
         }
-        draw(){
+        draw() {
             var circle = document.createElementNS(xmlns, 'circle');
             circle.setAttribute("cx", this.x)
             circle.setAttribute("cy", this.y);
@@ -100,19 +100,21 @@ https://cdnjs.cloudflare.com/ajax/libs/tooltipster/4.2.8/js/tooltipster.bundle.m
             circle.setAttribute("onclick", "remove(event)");
             circle.setAttribute("class", "tooltip");
             circle.setAttribute("title", "<p style='color:#F85D00'>Круг</p><p>Радиус:" + this.r + "</p><p>Площадь:" +
-                 "</p>");
+                this.square().toFixed(1) + "</p>");
             svg.appendChild(circle);
         }
-       
-      }
-      class Rect extends Shape {
+        square() {
+            return Math.PI * this.r * this.r;
+        }
+    };
+
+    class Rect extends Shape {
         constructor(x, y, w, h, color) {
             super(x, y, color);
-            this.type = 'circle';
+            var type = 'rect';
             this.w = w;
             this.h = h;
         }
-
         draw() {
             var rect = document.createElementNS(xmlns, 'rect');
             rect.setAttribute("x", this.x)
@@ -121,18 +123,47 @@ https://cdnjs.cloudflare.com/ajax/libs/tooltipster/4.2.8/js/tooltipster.bundle.m
             rect.setAttribute("height", this.h);
             rect.setAttribute("fill", this.color);
             rect.setAttribute("onclick", "remove(event)");
-            rect.setAttribute("class", "tooltip");            
+            rect.setAttribute("class", "tooltip");
+            rect.setAttribute("title", "<p style='color:#F85D00'>Прямоугольник</p><p>Ширина:" + this.w +
+                "</p><p>Высота:" + this.h + "</p><p>Площадь:" +
+                this.square().toFixed(1) + "</p>");
             svg.appendChild(rect);
         }
+        square() {
+            return this.w * this.h;
+        }
+    }
+
+    function generate() {
+        var shape;
+        for (var i = 0; i < 10; i++) {
+            var rand = Math.round(Math.random());
+            switch (rand) {
+                case 0: {
+                    shape = new Circle(
+                        Math.round(Math.random() * 400 + 50),
+                        Math.round(Math.random() * 400 + 50),
+                        Math.round(Math.random() * 10 + 20),
+                        "green");
+                    shape.draw();
+                    break;
+                }
+                case 1: {
+                    shape = new Rect(
+                        Math.round(Math.random() * 400 + 50),
+                        Math.round(Math.random() * 400 + 50),
+                        Math.round(Math.random() * 30 + 30),
+                        Math.round(Math.random() * 30 + 30), "red");
+                    shape.draw();
+                    break;
+                }
+            }
+        }
+        $('.tooltip').tooltipster({
+            theme: 'tooltipster-punk',
+            contentAsHTML: true
+        });
     } 
-      let shape=new Shape(2,3,'black')
-      console.log(new Shape(1, 2, 'red'))
-      console.log(shape.x);
-      let circle = new Circle(100,100,25,'red');
-      console.log(circle)
-      circle.draw();
-      let rect = new Rect(300,300,50,50,'black');
-      rect.draw();
     </script>
   </body>
 </html>
