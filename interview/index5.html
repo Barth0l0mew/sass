@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js    "></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+    
+    <script src="js/ion.calendar.js"></script>
+    <script src="js/ion.calendar.min.js"></script>
+    <script src="js/moment-with-locales.min.js"></script>
+    
+    <link rel="stylesheet" href="css/ion.calendar.css">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css ">
+
+    <style>
+        .container{
+            margin: 0 auto;
+            width: 250px;
+            height: max-content;
+        }
+        .myInput{
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="myCalendar" id="myCalendar-1"></div>
+    <input class="myInput" id="myDatePicker-1" data-lang="ru" data-years="1995-2013" data-sundayfirst="false" />
+   </div>
+
+    <script>
+        $("#myCalendar-1").ionCalendar({
+    lang: "rus",                     // language
+    sundayFirst: false,             // first week day
+    years: "80",                    // years diapason
+    format: "DD.MM.YYYY",           // date format
+    onClick: function(date){        // click on day returns date
+        console.log(date);
+    }
+});
+$("#myDatePicker-1").ionDatePicker();
+    </script>
+</body>
+</html>
