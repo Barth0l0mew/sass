@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="content">Fetch</div>
+    <script>
+        let url="http://127.0.0.1:5500/fetch/content.html"
+        fetch(url)
+        .then(response=>response.text())
+        .then(html=>{
+            console.log (html);
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html,'text/html');
+            console.log (doc);
+            
+            const target = document.getElementById('content');
+            console.log(target)
+            const source = doc.getElementById('content');
+            console.log(target)
+            console.log(source)
+            target.innerHTML=source.innerHTML;
+            console.log()
+
+        })
+        .catch(error=>console.log('error '+error));
+        
+    </script>
+  
+</body>
+</html>

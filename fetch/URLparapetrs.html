@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        URL parameters (also called query string parameters or URL variables)
+        URL параметры; URL переменные; строковые параметры запроса
+        Напишите вычисление суммы a+b, введенных как параметры запроса и выведите результат на страницу
+    --> 
+    <div id="result"> </div>
+    <script>
+        const url = new URL (window.location.href);
+        console.log(url);
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParam = new URLSearchParams(queryString);
+        console.log(urlParam);
+        const a= urlParam.get('a');
+        console.log(a);
+        const b= urlParam.get('b');
+        console.log(b);
+        let sum = +a + +b;
+        document.getElementById('result').innerHTML=sum;
+    </script>
+    
+</body>
+</html>

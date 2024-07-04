@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <img src="" alt="" id="image">
+    <script>
+        var images;
+        getData();
+
+                async function getData() {
+                    //https://api.randomuser.me/?results=10 берем 10 человек
+                    
+                    images = await fetch("https://api.thecatapi.com/v1/images/search")
+                        .then(res => res.json())
+                        .then(json => {console.log (json)
+                             return json})                        
+                        .catch(console.error);
+                        
+                        fill();
+                  
+                }
+
+        function fill() {
+            var image = images[0];
+            console.log(image.url);
+
+            $('#image').attr("src",image.url);    
+            $('#image').css("width",image.width);    
+        
+        }
+    </script>
+</body>
+</html>
