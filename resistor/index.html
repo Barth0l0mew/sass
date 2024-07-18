@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div    id="container">
+        
+        </div>
+        <div id="color-picker">
+        <div class="wrapper-dropdown">
+            <span @click="toggleDropdown()" v-html="selector"></span>
+            <ul class="dropdown" v-show="active">
+                <li v-for="color in colors" @click="setColor(color.hex, color.name)"><span :style="{background: color.hex}"></span> {{color.name}}</li>
+            </ul>
+        </div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
+        <script>
+            //https://editor.method.ac/ рисование svg
+            var colors = [
+	{
+		hex: '#00759A',
+	  name: 'Blue'
+  },
+	{
+		hex: '#F7941D',
+	  name: 'Orange'
+  },
+	{
+		hex: '#A71930',
+	  name: 'Red'
+  },
+	{
+		hex: '#679146',
+	  name: 'Green'
+  }
+];
+new Vue({
+	el: '#color-picker',
+	data: {
+		active: false,
+		selectedColor: '',
+		selectedColorName: '',
+		colors: colors
+	},
+	computed: {
+		selector: function() {
+			if(!this.selectedColor) {
+				return 'Color';
+			}
+			else {
+				return '<span style="background: ' + this.selectedColor + '"></span> ' + this.selectedColorName;
+			}
+		}
+	},
+	methods: {
+		setColor: function(color, colorName) {
+			this.selectedColor = color;
+			this.selectedColorName = colorName;
+			this.active = false;
+		},
+		toggleDropdown: function() {
+			this.active = !this.active;
+		},
+	}
+});
+
+
+        </script>
+</body>
+</html>
