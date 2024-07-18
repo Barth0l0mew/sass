@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f5;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.selector {
+    margin: 10px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <h1>Рассчёт сопротивления резистора</h1>
+<div class="container">
+<div class="selector">
+<label for="first-band">Первая полоса:</label>
+<select id="first-band">
+<option value="0">Черный (0)</option>
+<option value="1">Коричневый (1)</option>
+<option value="2">Красный (2)</option>
+<option value="3">Оранжевый (3)</option>
+<option value="4">Желтый (4)</option>
+<option value="5">Зелёный (5)</option>
+<option value="6">Синий (6)</option>
+<option value="7">Фиолетовый (7)</option>
+<option value="8">Серый (8)</option>
+<option value="9">Белый (9)</option>
+</select>
+</div>
+<div class="selector">
+<label for="second-band">Вторая полоса:</label>
+<select id="second-band">
+<option value="0">Черный (0)</option>
+<option value="1">Коричневый (1)</option>
+<option value="2">Красный (2)</option>
+<option value="3">Оранжевый (3)</option>
+<option value="4">Желтый (4)</option>
+<option value="5">Зелёный (5)</option>
+<option value="6">Синий (6)</option>
+<option value="7">Фиолетовый (7)</option>
+<option value="8">Серый (8)</option>
+<option value="9">Белый (9)</option>
+            </select>
+        </div>
+        <div class="selector">
+            <label for="multiplier">Множитель:</label>
+            <select id="multiplier">
+                <option value="1">Черный (x1)</option>
+                <option value="10">Коричневый (x10)</option>
+                <option value="100">Красный (x100)</option>
+                <option value="1000">Оранжевый (x1k)</option>
+                <option value="10000">Желтый (x10k)</option>
+                <option value="100000">Зелёный (x100k)</option>
+                <option value="1000000">Синий (x1M)</option>
+                <option value="10000000">Фиолетовый (x10M)</option>
+                <option value="0.1">Золотой (x0.1)</option>
+                <option value="0.01">Серебряный (x0.01)</option>
+            </select>
+        </div>
+        <div class="selector">
+            <label for="tolerance">Допуск:</label>
+            <select id="tolerance">
+                <option value="1">Коричневый (±1%)</option>
+                <option value="2">Красный (±2%)</option>
+                <option value="0.5">Зелёный (±0.5%)</option>
+                <option value="0.25">Синий (±0.25%)</option>
+                <option value="0.1">Фиолетовый (±0.1%)</option>
+                <option value="5">Золотой (±5%)</option>
+                <option value="10">Серебряный (±10%)</option>
+            </select>
+        </div>
+    </div>
+    <button onclick="calculateResistance()">Рассчитать сопротивление</button>
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
